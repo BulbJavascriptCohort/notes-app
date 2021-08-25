@@ -1,0 +1,11 @@
+<% if(notes){%>
+<ol>
+  <% notes.forEach(note=>{%>
+  <h2><%=note.title%></h2>
+  <li>
+    <img src="<%= note.image %>" />
+    <p><%= notes.content %></p>
+  </li>
+  <% })%>
+</ol>
+<% } %>
