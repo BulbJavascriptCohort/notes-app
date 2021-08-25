@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 const path = require('path');
 const data = require('./data/notes.data');
@@ -14,9 +14,13 @@ app.get('/', (req, res) => {
   })
 })
 
+// GET REQUEST
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
 
 // ****** SERVER ********************************
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 7000;
 app.listen(port, () => {
-  console.log(`Listening on port ${port}......`)
+  console.log(`Listening on port ${port}......`);
 });
