@@ -1,79 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Doc</title>
-		<style>
-			.popup {
-				background-color: #6d726f;
-				color: #fff;
-				top: 20%;
-				left: 10%;
-				width: 500px;
-				height: 300px;
-				position: fixed;
-				display: none;
-			}
-			#display {
-				width: 100%;
-				font-size: 14px;
-				width: 90%;
-				height: 60%;
-				padding: 10px;
-				margin-top: 2%;
-				margin-bottom: 2%;
-				margin-left: 2%;
-				text-align: justify;
-			}
-			.update {
-				width: auto;
-				padding: 10px;
-				margin-left: 30%;
-				color: #fff;
-				border-radius: 5px;
-				background-color: #0b66ee;
-			}
-			.close {
-				width: auto;
-				padding: 10px;
-				margin-left: 10px;
-				color: #fff;
-				border-radius: 5px;
-				background-color: #f31708;
-			}
-		</style>
-	</head>
-	<% if(notes){%> %>
-	<body>
-		<div class="popup">
-			<textarea id="display"></textarea>
-			<button type="submit" value="send" class="update">UPDATE</button>
-			<button class="close">CANCEL</button>
-		</div>
-		<ol>
-			<% notes.forEach(note=>{%>
-			<li>
-				<h2><%=note.title%></h2>
-				<img src="<%= note.image %>" />
-				<p><%= note.content %></p>
-				<button onclick="editButton('<%= note.content %>')">EDIT</button>
-				<button class="delete">DELETE</button>
-			</li>
-			<% }) %>
-		</ol>
-		<% }%>
-		<script>
-			const popupView = document.querySelector(".popup");
-			const editButton = (note) => {
-				popupView.style.display = "block";
-				document.querySelector("#display").innerHTML = note;
-			};
-			let cancel = document.querySelector(".close");
-			cancel.onclick = function () {
-				popupView.style.display = "none";
-			};
-		</script>
-	</body>
-</html>
+<%- include('../public/style.ejs'); %> <% if(notes){%> %>
+<div class="popup">
+	<textarea id="display"></textarea>
+	<button type="submit" value="send" class="update">UPDATE</button>
+	<button class="close">CANCEL</button>
+</div>
+<ol>
+	<% notes.forEach(note=>{%>
+	<li>
+		<h2><%=note.title%></h2>
+		<img src="<%= note.image %>" />
+		<p><%= note.content %></p>
+		<button onclick="editButton('<%= note.content %>')">EDIT</button>
+		<button class="delete">DELETE</button>
+	</li>
+	<% }) %>
+</ol>
+<% }%> <%- include('../public/script.ejs'); %>
