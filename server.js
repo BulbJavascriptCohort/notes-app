@@ -3,6 +3,8 @@ const app = express();
 const path = require("path");
 const data = require("./data/notes.data");
 
+app.use(express.static("public"));
+
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
@@ -15,7 +17,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/create", (req, res) => {
-  res.render('create');
+  res.render("create");
 });
 
 // GET REQUEST

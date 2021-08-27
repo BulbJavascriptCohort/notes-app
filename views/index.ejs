@@ -1,18 +1,34 @@
-<%- include('../public/style.ejs'); %> <% if(notes){%> %>
-<div class="popup">
-	<textarea id="display"></textarea>
-	<button type="submit" value="send" class="update">UPDATE</button>
-	<button class="close">CANCEL</button>
-</div>
-<ol>
-	<% notes.forEach(note=>{%>
-	<li>
-		<h2><%=note.title%></h2>
-		<img src="<%= note.image %>" />
-		<p><%= note.content %></p>
-		<button onclick="editButton('<%= note.content %>')">EDIT</button>
-		<button class="delete">DELETE</button>
-	</li>
-	<% }) %>
-</ol>
-<% }%> <%- include('../public/script.ejs'); %>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Notes App</title>
+  </head>
+  <body>
+    <% if(notes){%> %>
+    <div class="popup">
+      <textarea id="display"></textarea>
+      <button type="submit" value="send" class="update">UPDATE</button>
+      <button class="close">CANCEL</button>
+    </div>
+    <ol>
+      <% notes.forEach(note=>{%>
+      <li>
+        <h2><%=note.title%></h2>
+        <img src="<%= note.image %>" />
+        <p><%= note.content %></p>
+        <button onclick="editButton('<%= note.content %>')">EDIT</button>
+        <button class="delete">DELETE</button>
+      </li>
+      <% }) %>
+    </ol>
+    <% }%>
+
+    <script src="app.js"></script>
+  </body>
+</html>
+<!-- <%- include('../public/style.ejs'); %>
+<%- include('../public/script.ejs'); %> -->
