@@ -51,4 +51,5 @@ const notes = [
     "date-published": "September 25, 2021",
   },
 ];
+
 module.exports = notes;
