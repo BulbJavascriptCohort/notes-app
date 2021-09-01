@@ -1,22 +1,74 @@
 // console.log(notes)
+const sizeOfNotes = notes.length
 
-const names = ["lola", "eben","iyin", "matthew", "tunde", "solomon", "joshua"]
+document.getElementById("number_of_notes").textContent = sizeOfNotes
 
-// cooler => rice, plantain, moi moi, egg, beef, salad, beans
-// DOM Manipulation
+let noteListElement = document.getElementById("notes")
 
-let galaElement = document.getElementById("gala")
-let babsElement = document.getElementById("babs")
-console.log(galaElement)
-babsElement.textContent = "Go To Fajuyi"
-console.log(babsElement.textContent)
-
-console.log(galaElement.innerHTML)
-
-let nameListElement = document.getElementById("bulbmates")
-for(n of names){
+for(i of notes){
     let listElement = document.createElement("li")
-    listElement.textContent = n
+    listElement.setAttribute("class", "list-group-item d-flex justify-content-between align-items-start")
 
-    nameListElement.appendChild(listElement)
+    let divElement = document.createElement("div")
+    divElement.setAttribute("class", "ms-2 me-auto")
+
+    let innerDivElement = document.createElement("div")
+    innerDivElement.setAttribute("class", "fw-bold")
+    
+    let innerSpanElement = document.createElement("span")
+
+    let spanElement = document.createElement("span")
+    spanElement.setAttribute("class", "badge bg-primary rounded-pill")
+
+    innerDivElement.textContent = i.title
+    innerSpanElement.textContent = i.content
+
+    spanElement.textContent = i.author_id
+
+    let buttonRow = document.createElement("div")
+    buttonRow.setAttribute("class", "d-grid gap-2")
+    let btnDelete = document.createElement("button")
+    btnDelete.setAttribute("type", "button")
+    btnDelete.setAttribute("class", "btn btn-danger")
+    btnDelete.setAttribute("id", `delete${i.author_id}`)
+
+    btnDelete.textContent = "Delete"
+
+    let btnEdit = document.createElement("button")
+    btnEdit.setAttribute("type", "button")
+    btnEdit.setAttribute("class", "btn btn-success")
+    btnEdit.setAttribute("id", `edit${i.author_id}`)
+    btnEdit.textContent = "Edit"
+
+    buttonRow.appendChild(btnEdit)
+    buttonRow.appendChild(btnDelete)
+
+
+    divElement.appendChild(innerDivElement)
+    divElement.appendChild(innerSpanElement)
+   
+    listElement.appendChild(divElement)
+    listElement.appendChild(spanElement)
+    listElement.appendChild(buttonRow)
+
+
+    noteListElement.appendChild(listElement)
 }
+
+
+document.addEventListener("click", function(amebo) {
+    const buttonClicked = amebo.target.textContent
+    if (buttonClicked === "Edit"){
+        console.log(amebo.target.getAttribute("id"))
+    }
+    
+    if (buttonClicked === "Delete"){
+        console.log(amebo.target.getAttribute("id"))
+        console.log(amebo.target.parentNode.parentNode.remove())
+    }
+    
+})
+
+// step
+// slap
+// everything that happen is store inside e

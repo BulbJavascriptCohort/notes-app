@@ -1,34 +1,25 @@
 <!DOCTYPE html>
     <head>
         <title>All Notes</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     </head>
     <body>
-        <h1>Note Apps</h1>
-        <!-- Image Element / Tag -->
-        <!-- src, property/attribute of the element -->
-        <!-- property/attribute is a key, value pair -->
-        <p class="">Messi Picture</p>
-        <img id="messi" class="" name="" alt="" src="https://ichef.bbci.co.uk/onesport/cps/800/cpsprodpb/061A/production/_120326510_messi.jpg" />
-        <!-- id, identity, unique, specific, only one element must have an id -->
-        <!-- class, group, apply same behaviour to multiple element -->
-        <a href="#" id="babs">Go to babalola</a>
-        <a href="#" id="gala"><img src="https://www.nairaland.com/vertipics/maurkhpdusmo8aux92qivqj0k1g994rj.png"></a>
-        
-        <ol id="bulbmates">
+   
+        <div class="container">
+            <div class="row">
+                <div class="col-8">
+                    <h1>Notes App</h1>
+                </div>
+                <div class="col">
+                    <button type="button" class="btn btn-primary">New Notes</button>
+                </div>
+            </div>
+            <h2><span id="number_of_notes" class="badge bg-secondary"></span>  Notes in App</h2>
+       
+            <ol id="notes" class="list-group list-group-numbered" ></ol>
+       
+        </div>
 
-            <li>Segun</li>
-            <li>Fathimah</li>
-            <li>Jafaar</li>
-        </ol>
-
-        <ol id="footballmates">
-            <li>Messi</li>
-            <li>Ronaldo</li>
-            <li>Pogba</li>
-            <li>Pogba</li>
-        </ol>
-
-        <ol id="notes"></ol>
 
     </body>
     <script src="../data/notes.data.js"></script>
