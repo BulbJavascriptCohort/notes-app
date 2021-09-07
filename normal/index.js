@@ -1,13 +1,15 @@
 // console.log(notes)
-const sizeOfNotes = notes.length
+const sizeOfNotes = localStorage.length
 document.getElementById("number_of_notes").textContent = sizeOfNotes
 let noteListElement = document.getElementById("notes")
 
 // populate the localStorage
-for( let i of notes ){
-    localStorage.setItem(i.author_id, JSON.stringify(i))
+if( localStorage.length === 0)
+{
+    for( let i of notes ){
+        localStorage.setItem(i.author_id, JSON.stringify(i))
+    }
 }
-
 
 // load the data from the localStorage
 for( let j = 0; j < localStorage.length; j++ ){
@@ -68,11 +70,15 @@ for( let j = 0; j < localStorage.length; j++ ){
 
 
 document.addEventListener("click", function(amebo) {
-    console.log(amebo.target);
+    // console.log(amebo);
     const buttonClicked = amebo.target.textContent
     if (buttonClicked === "Edit"){
         console.log(amebo.target.getAttribute("id"))
-    }
+        // window.open("./edit.html", "_blank",)
+        const note_id = amebo.target.getAttribute("id").split("t")[1]
+        
+        window.location.href =  `edit.html?note_id=${note_id}`
+     }
     
     if (buttonClicked === "Delete"){
         // console.log(amebo.target.getAttribute("id"))
